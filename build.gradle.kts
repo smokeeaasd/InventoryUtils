@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "dev.lucas"
-version = "1.0.0"
+version = "1.0.5"
 
 repositories {
     mavenCentral()

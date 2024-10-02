@@ -4,12 +4,11 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
-import org.bukkit.plugin.Plugin
 
 /**
  * Listen InventoryUI events.
  */
-class InventoryUIListener(private val plugin: Plugin) : Listener {
+class InventoryUIListener() : Listener {
 
     /**
      * Function that checks whether the inventory is a UI and handles its basic actions.

@@ -6,19 +6,16 @@ import org.bukkit.entity.Player
 import org.bukkit.event.Listener
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.InventoryHolder
-import org.bukkit.plugin.Plugin
 
 /**
  * Represents a custom inventory UI, allowing the addition of interactive components,
  * opening the inventory for players, and reacting to open events.
  *
- * @param plugin Reference to the Main plugin instance.
  * @param size The size of the inventory. Must be a multiple of 9.
  * @param title The title of the inventory, displayed to the player when opened.
  * @param onOpen A lambda function that is triggered when the inventory is opened by a player.
  */
 class InventoryUI(
-    plugin: Plugin,
     size: Int,
     title: Component,
     private val onOpen: (Player) -> Unit = {}
