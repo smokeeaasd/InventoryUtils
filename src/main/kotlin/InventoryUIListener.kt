@@ -34,6 +34,9 @@ class InventoryUIListener() : Listener {
         }
     }
 
+    /**
+     * Function that checks wheter the inventory is a UI and handles drag event
+     */
     @EventHandler
     fun onInventoryDrag(event: InventoryDragEvent) {
         val clickedInventory = event.inventory ?: return
