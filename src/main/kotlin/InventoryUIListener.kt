@@ -3,6 +3,7 @@ package dev.lucas
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
+import org.bukkit.event.inventory.ClickType
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.inventory.InventoryDragEvent
 
@@ -27,9 +28,23 @@ class InventoryUIListener() : Listener {
         val slot = event.slot
         val component = ui.components[slot] ?: return
         event.isCancelled = true
+
         when (component) {
             is InventoryUIButton -> {
-                component.handleClick(player)
+                when (event.click) {
+                    ClickType.LEFT -> {
+                        // Handle left click
+                        component.handleLeftClick(player)
+                    }
+                    ClickType.RIGHT -> {
+                        // Handle right click
+                        component.handleRightClick(player)
+                    }
+                    else -> {
+                        // Handle other click types
+                        component.handleClick(player)
+                    }
+                }
             }
         }
     }

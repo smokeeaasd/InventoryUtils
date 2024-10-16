@@ -16,8 +16,18 @@ class InventoryUIButton(
     itemStack: ItemStack,
     title: Component,
     lore: MutableList<Component> = mutableListOf(),
+    private val onLeftClick: (Player) -> Unit = {},
+    private val onRightClick: (Player) -> Unit = {},
     private val onClicked: (Player) -> Unit = {}
 ) : InventoryUIComponent(itemStack, title, lore) {
+    fun handleLeftClick(player: Player) {
+        onLeftClick(player)
+    }
+
+    fun handleRightClick(player: Player) {
+        onRightClick(player)
+    }
+
     fun handleClick(player: Player) {
         onClicked(player)
     }
