@@ -4,6 +4,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.inventory.InventoryDragEvent
 
 /**
  * Listen InventoryUI events.
@@ -31,5 +32,15 @@ class InventoryUIListener() : Listener {
                 component.handleClick(player)
             }
         }
+    }
+
+    @EventHandler
+    fun onInventoryDrag(event: InventoryDragEvent) {
+        val clickedInventory = event.inventory ?: return
+        val player = event.whoClicked as? Player ?: return
+
+        if (clickedInventory.holder !is InventoryUI) return
+
+        event.isCancelled = true
     }
 }
